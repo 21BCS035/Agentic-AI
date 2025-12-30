@@ -4,14 +4,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-    api_key="AIzaSyDLZdx55vhm6BhRzjg10KuX6SQudjDSfVM",
+#    api key is going to be written here
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
 response = client.chat.completions.create(
     model="gemini-2.5-flash",
     messages=[
-        {"role":"user","content":"Hey, I am Arpit Yadav! Nice to meet you"}
+        {"role":"system","content":"You are an expert in Computer Science and programming,so give the answers related to thsese things only"},
+        {"role":"user","content":"Write a code in cpp to print sum of two numbers"}
     ]
 )
 
