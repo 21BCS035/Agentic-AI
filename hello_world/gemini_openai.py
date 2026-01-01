@@ -4,8 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-#    api key is going to be written here
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+   
 )
 
 response = client.chat.completions.create(
