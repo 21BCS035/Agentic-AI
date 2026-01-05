@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-   
+
 )
 
 response = client.chat.completions.create(

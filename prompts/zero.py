@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(
-    
+
 )
 
 #Zero shot prompting : Directly giving instructions to the model
