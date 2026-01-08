@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import requests
 from pydantic import BaseModel,Field
 from typing import Optional
+import os
 
 load_dotenv()
 
@@ -37,8 +38,13 @@ def get_weather(city: str):
 
     return f"The weather in {city} is {response.text}"
 
+def run_command(cmd: str):
+    result = os.system(cmd)
+    return result
+
 available_tools = {
-    "get_weather": get_weather
+    "get_weather": get_weather,
+    "run_command": run_command
 }
 
 SYSTEM_PROMPT="""
@@ -59,6 +65,7 @@ SYSTEM_PROMPT="""
 
    Available tools:
    - get_weather(city : str): Takes city name as an input string and returns the weather information about the city.
+   - run_command(cmd : str): Takes a system linux command as string and executes the command on user's system and returns the output from that command.
 
    Example 1:
    START: Hey, can you solve 2 + 3 * 5 / 10
